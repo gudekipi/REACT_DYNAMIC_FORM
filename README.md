@@ -1,47 +1,44 @@
-# TypeScript Next.js example
+# Dynamic Form based on REST API data with Redux, TypeScript, and Yarn
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+This project demonstrates how to create a dynamic form based on data fetched from a REST API, using Redux for state management, TypeScript for static typing, and Yarn for package management. The form fields are retrieved from the API when the page loads, and the form data can be submitted back to the API.
 
-## Deploy your own
+## Features
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-typescript)
+1. Fetch form fields:
+- The fields for the form are retrieved from the API using a GET request to `https://ulventech-react-exam.netlify.app/api/form`.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
+- The response from the API contains an array of form field objects, each with a `fieldName`, `type`, `value`, and `label` property.
 
-## How to use it?
+- The correct input element is showed for each form field based on its `type` (text, email, number, multiline, or select).
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+- For select fields, the options are also generated based on the `options` attribute in the field object.
 
-```bash
-npx create-next-app --example with-typescript with-typescript-app
-```
+- The data from the form fields is stored in the Redux store
 
-```bash
-yarn create next-app --example with-typescript with-typescript-app
-```
+2. Send form data:
+ - The form data can be submitted to the API by making a POST request to `https://ulventech-react-exam.netlify.app/api/form`.
 
-```bash
-pnpm create next-app --example with-typescript with-typescript-app
-```
+The request body contains the form data, including `firstName`, `lastName`, `emailAddress`, a generated `[randomString]`, and optional fields such as `gender`, `age`, and `testimonial`.
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+- The API's response contains the submitted form data, as well as a success status and message.
 
-## Notes
+- The API response is kept in the Redux store.
 
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
+## Getting Started
 
-```
-npm install --save-dev typescript
-```
+1. Clone the repository:
+    git clone https://github.com/gudekipi/REACT_DYNAMIC_FORM.git
 
-To enable TypeScript's features, we install the type declarations for React and Node.
+2. Navigate to the project directory:
+    cd REACT_DYNAMIC_FORM
 
-```
-npm install --save-dev @types/react @types/react-dom @types/node
-```
+3.Install the dependencies:
+    yarn install
 
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
+4. Build the app:
+    yarn build
 
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
+5. Start the server:
+    yarn start
 
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+6. Open your browser to `http://localhost:3000` to view the app.
