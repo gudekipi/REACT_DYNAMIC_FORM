@@ -27,18 +27,18 @@ The request body contains the form data, including `firstName`, `lastName`, `ema
 ## Getting Started
 
 1. Clone the repository:
-    git clone https://github.com/gudekipi/REACT_DYNAMIC_FORM.git
+    ```git clone https://github.com/gudekipi/REACT_DYNAMIC_FORM.git```
 
 2. Navigate to the project directory:
-    cd REACT_DYNAMIC_FORM
+    ```cd REACT_DYNAMIC_FORM```
 
 3.Install the dependencies:
-    yarn install
+    ```yarn install```
 
 4. Build the app:
-    yarn build
+    ```yarn build```
 
 5. Start the server:
-    yarn start
+    ```yarn start```
 
 6. Open your browser to `http://localhost:3000` to view the app.
